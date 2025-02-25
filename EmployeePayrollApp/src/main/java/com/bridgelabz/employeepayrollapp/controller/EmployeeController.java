@@ -1,5 +1,7 @@
 package com.bridgelabz.employeepayrollapp.controller;
 
+
+
 import com.bridgelabz.employeepayrollapp.DTO.EmployeeDTO;
 import com.bridgelabz.employeepayrollapp.Service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,15 +15,25 @@ import java.util.List;
 public class EmployeeController {
 
     @Autowired
-    private EmployeeService employeeService; // Inject Service Layer
+    private EmployeeService employeeService;
 
     @GetMapping
     public List<EmployeeDTO> getAllEmployees() {
-        return employeeService.getAllEmployees(); // Delegating to Service Layer
+        return employeeService.getAllEmployees();
     }
 
     @PostMapping
     public EmployeeDTO createEmployee(@RequestBody EmployeeDTO employeeDTO) {
-        return employeeService.createEmployee(employeeDTO); // Delegating to Service Layer
+        return employeeService.createEmployee(employeeDTO);
+    }
+
+    @PutMapping("/{index}")
+    public EmployeeDTO updateEmployee(@PathVariable int index, @RequestBody EmployeeDTO employeeDTO) {
+        return employeeService.updateEmployee(index, employeeDTO);
+    }
+
+    @DeleteMapping("/{index}")
+    public String deleteEmployee(@PathVariable int index) {
+        return employeeService.deleteEmployee(index) ? "Employee deleted" : "Invalid index";
     }
 }
