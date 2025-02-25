@@ -2,35 +2,56 @@ package com.bridgelabz.employeepayrollapp.controller;
 
 
 
+
+
 import com.bridgelabz.employeepayrollapp.model.Employee;
+import com.bridgelabz.employeepayrollapp.repository.EmployeeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/employees")
-class EmployeePayrollController {
+@CrossOrigin(origins = "http://localhost:3000") // Allow frontend access
+public class EmployeeController {
 
-    private List<Employee> employeeList = new ArrayList<>();
+    @Autowired
+    private EmployeeRepository employeeRepository;
 
+    // GET: Retrieve all employees
     @GetMapping
     public List<Employee> getAllEmployees() {
-        return employeeList;
+        return employeeRepository.findAll();
     }
 
-    @PostMapping
-    public Employee addEmployee(@RequestBody Employee employee) {
-        employee.setId( (employeeList.size() + 1));
-        employeeList.add(employee);
-        return employee;
-    }
-
+    // GET: Retrieve an employee by ID
     @GetMapping("/{id}")
-    public Employee getEmployeeById(@PathVariable int id) {
-        return employeeList.stream()
-                .filter(emp -> emp.getId() == id)
-                .findFirst()
-                .orElse(null);
+    public Optional<Employee> getEmployeeById(@PathVariable Long id) {
+        return employeeRepository.findById(id);
+    }
+
+    // POST: Create a new employee
+    @PostMapping
+    public Employee createEmployee(@RequestBody Employee employee) {
+        return employeeRepository.save(employee);
+    }
+
+    // PUT: Update an existing employee
+    @PutMapping("/{id}")
+    public Employee updateEmployee(@PathVariable Long id, @RequestBody Employee employeeDetails) {
+        return employeeRepository.findById(id).map(emp -> {
+            emp.setName(employeeDetails.getName());
+            emp.setDepartment(employeeDetails.getDepartment());
+            emp.setSalary(employeeDetails.getSalary());
+            return employeeRepository.save(emp);
+        }).orElseThrow(() -> new RuntimeException("Employee not found"));
+    }
+
+    // DELETE: Remove an employee
+    @DeleteMapping("/{id}")
+    public void deleteEmployee(@PathVariable Long id) {
+        employeeRepository.deleteById(id);
     }
 }

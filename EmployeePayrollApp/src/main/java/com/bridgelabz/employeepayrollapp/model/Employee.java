@@ -1,23 +1,20 @@
 package com.bridgelabz.employeepayrollapp.model;
 
+
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@Table(name = "employees")
 public class Employee {
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String name;
+    private String department;
     private double salary;
-
-    public Employee(int id, String name, double salary) {
-        this.id = id;
-        this.name = name;
-        this.salary = salary;
-    }
-
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
-
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-
-    public double getSalary() { return salary; }
-    public void setSalary(double salary) { this.salary = salary; }
 }
