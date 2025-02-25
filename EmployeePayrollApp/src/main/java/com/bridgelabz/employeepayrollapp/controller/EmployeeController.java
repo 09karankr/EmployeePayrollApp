@@ -1,40 +1,31 @@
 package com.bridgelabz.employeepayrollapp.controller;
 
-
-import lombok.extern.slf4j.Slf4j;
 import com.bridgelabz.employeepayrollapp.DTO.EmployeeDTO;
+
 import com.bridgelabz.employeepayrollapp.Service.EmployeeService;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
-@Slf4j
 @RestController
 @RequestMapping("/employees")
-@CrossOrigin(origins = "http://localhost:3000")
 public class EmployeeController {
 
-    @Autowired
-    private EmployeeService employeeService;
+    private final EmployeeService employeeService;
 
-    @GetMapping
-    public List<EmployeeDTO> getAllEmployees() {
-        return employeeService.getAllEmployees();
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
     }
 
-    @PostMapping
-    public EmployeeDTO createEmployee(@RequestBody EmployeeDTO employeeDTO) {
-        return employeeService.createEmployee(employeeDTO);
+    @PostMapping("/create")
+    public ResponseEntity<String> createEmployee(@Valid @RequestBody EmployeeDTO employeeDTO) {
+        employeeService.createEmployee(employeeDTO);
+        return ResponseEntity.ok("Employee created successfully!");
     }
 
-    @PutMapping("/{index}")
-    public EmployeeDTO updateEmployee(@PathVariable int index, @RequestBody EmployeeDTO employeeDTO) {
-        return employeeService.updateEmployee(index, employeeDTO);
-    }
-
-    @DeleteMapping("/{index}")
-    public String deleteEmployee(@PathVariable int index) {
-        return employeeService.deleteEmployee(index) ? "Employee deleted" : "Invalid index";
+    @PutMapping("/update/{id}")
+    public ResponseEntity<String> updateEmployee(@PathVariable int id, @Valid @RequestBody EmployeeDTO employeeDTO) {
+        employeeService.updateEmployee(id, employeeDTO);
+        return ResponseEntity.ok("Employee updated successfully!");
     }
 }
