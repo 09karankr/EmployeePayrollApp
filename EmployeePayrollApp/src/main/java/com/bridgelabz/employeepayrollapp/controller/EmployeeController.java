@@ -1,7 +1,7 @@
 package com.bridgelabz.employeepayrollapp.controller;
 
 
-
+import lombok.extern.slf4j.Slf4j;
 import com.bridgelabz.employeepayrollapp.DTO.EmployeeDTO;
 import com.bridgelabz.employeepayrollapp.Service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/employees")
 @CrossOrigin(origins = "http://localhost:3000")

@@ -1,0 +1,42 @@
+2025-02-25T16:34:46.945+05:30  INFO 10076 --- [EmployeePayrollApp] [restartedMain] c.b.e.EmployeePayrollAppApplication      : Starting EmployeePayrollAppApplication using Java 23.0.2 with PID 10076 (D:\EmployeePayRoll\EmployeePayrollApp\target\classes started by karan in D:\EmployeePayRoll)
+2025-02-25T16:34:46.948+05:30 DEBUG 10076 --- [EmployeePayrollApp] [restartedMain] c.b.e.EmployeePayrollAppApplication      : Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-02-25T16:34:46.949+05:30  INFO 10076 --- [EmployeePayrollApp] [restartedMain] c.b.e.EmployeePayrollAppApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-02-25T16:34:47.051+05:30  INFO 10076 --- [EmployeePayrollApp] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-25T16:34:47.052+05:30  INFO 10076 --- [EmployeePayrollApp] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-25T16:34:48.321+05:30  INFO 10076 --- [EmployeePayrollApp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-25T16:34:48.424+05:30  INFO 10076 --- [EmployeePayrollApp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 90 ms. Found 1 JPA repository interface.
+2025-02-25T16:34:49.439+05:30  INFO 10076 --- [EmployeePayrollApp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2025-02-25T16:34:49.461+05:30  INFO 10076 --- [EmployeePayrollApp] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-02-25T16:34:49.462+05:30  INFO 10076 --- [EmployeePayrollApp] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-02-25T16:34:49.551+05:30  INFO 10076 --- [EmployeePayrollApp] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-02-25T16:34:49.554+05:30  INFO 10076 --- [EmployeePayrollApp] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2500 ms
+2025-02-25T16:34:49.893+05:30  INFO 10076 --- [EmployeePayrollApp] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-25T16:34:49.996+05:30  INFO 10076 --- [EmployeePayrollApp] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-02-25T16:34:50.052+05:30  INFO 10076 --- [EmployeePayrollApp] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-25T16:34:50.496+05:30  INFO 10076 --- [EmployeePayrollApp] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-25T16:34:50.545+05:30  INFO 10076 --- [EmployeePayrollApp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-25T16:34:51.171+05:30  INFO 10076 --- [EmployeePayrollApp] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2ff739dc
+2025-02-25T16:34:51.176+05:30  INFO 10076 --- [EmployeePayrollApp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-25T16:34:51.282+05:30  WARN 10076 --- [EmployeePayrollApp] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-25T16:34:51.284+05:30  WARN 10076 --- [EmployeePayrollApp] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-25T16:34:51.336+05:30  INFO 10076 --- [EmployeePayrollApp] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-25T16:34:52.529+05:30  INFO 10076 --- [EmployeePayrollApp] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-25T16:34:52.661+05:30  INFO 10076 --- [EmployeePayrollApp] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-25T16:34:52.765+05:30  WARN 10076 --- [EmployeePayrollApp] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-25T16:34:53.774+05:30  INFO 10076 --- [EmployeePayrollApp] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-02-25T16:34:53.850+05:30  INFO 10076 --- [EmployeePayrollApp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path '/'
+2025-02-25T16:34:53.866+05:30  INFO 10076 --- [EmployeePayrollApp] [restartedMain] c.b.e.EmployeePayrollAppApplication      : Started EmployeePayrollAppApplication in 7.763 seconds (process running for 8.721)
+2025-02-25T16:35:06.107+05:30  INFO 10076 --- [EmployeePayrollApp] [http-nio-9090-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-25T16:35:06.108+05:30  INFO 10076 --- [EmployeePayrollApp] [http-nio-9090-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-02-25T16:35:06.112+05:30  INFO 10076 --- [EmployeePayrollApp] [http-nio-9090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2025-02-25T16:35:06.207+05:30  INFO 10076 --- [EmployeePayrollApp] [http-nio-9090-exec-2] c.b.e.Service.EmployeeService            : Fetching all employees
+2025-02-25T16:35:12.861+05:30  INFO 10076 --- [EmployeePayrollApp] [http-nio-9090-exec-3] c.b.e.Service.EmployeeService            : Created new employee: EmployeeDTO(name=kiran, salary=5500.0)
+2025-02-25T16:35:23.468+05:30  INFO 10076 --- [EmployeePayrollApp] [http-nio-9090-exec-4] c.b.e.Service.EmployeeService            : Created new employee: EmployeeDTO(name=karan kumar, salary=5501200.0)
+2025-02-25T16:35:28.208+05:30  INFO 10076 --- [EmployeePayrollApp] [http-nio-9090-exec-5] c.b.e.Service.EmployeeService            : Fetching all employees
