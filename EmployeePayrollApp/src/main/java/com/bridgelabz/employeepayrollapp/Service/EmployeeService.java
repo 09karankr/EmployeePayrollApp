@@ -1,7 +1,5 @@
 package com.bridgelabz.employeepayrollapp.Service;
 
-
-
 import com.bridgelabz.employeepayrollapp.DTO.EmployeeDTO;
 import com.bridgelabz.employeepayrollapp.mapper.EmployeeMapper;
 import com.bridgelabz.employeepayrollapp.model.Employee;
@@ -15,10 +13,10 @@ import java.util.stream.Collectors;
 public class EmployeeService {
 
     @Autowired
-    private EmployeeRepository employeeRepository;
+    private EmployeeRepository employeeRepository; // Handles DB operations
 
     @Autowired
-    private EmployeeMapper employeeMapper;
+    private EmployeeMapper employeeMapper; // Converts Model <-> DTO
 
     public List<EmployeeDTO> getAllEmployees() {
         return employeeRepository.findAll()
@@ -33,4 +31,3 @@ public class EmployeeService {
         return employeeMapper.entityToDto(savedEmployee);
     }
 }
-
