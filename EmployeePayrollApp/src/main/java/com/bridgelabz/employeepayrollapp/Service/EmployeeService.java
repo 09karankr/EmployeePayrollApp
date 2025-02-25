@@ -1,39 +1,46 @@
 package com.bridgelabz.employeepayrollapp.Service;
 
 
-
+import lombok.extern.slf4j.Slf4j;
 import com.bridgelabz.employeepayrollapp.DTO.EmployeeDTO;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Service
 public class EmployeeService {
 
-    private final List<EmployeeDTO> employeeList = new ArrayList<>(); // In-Memory Storage
+    private final List<EmployeeDTO> employeeList = new ArrayList<>();
 
     public List<EmployeeDTO> getAllEmployees() {
-        return employeeList; // Return all employees
+        log.info("Fetching all employees");
+        return employeeList;
     }
 
     public EmployeeDTO createEmployee(EmployeeDTO employeeDTO) {
-        employeeList.add(employeeDTO); // Add employee to in-memory list
-        return employeeDTO; // Return the added employee
+        employeeList.add(employeeDTO);
+        log.info("Created new employee: {}", employeeDTO);
+        return employeeDTO;
     }
 
     public EmployeeDTO updateEmployee(int index, EmployeeDTO employeeDTO) {
         if (index >= 0 && index < employeeList.size()) {
-            employeeList.set(index, employeeDTO); // Update employee at index
+            employeeList.set(index, employeeDTO);
+            log.info("Updated employee at index {}: {}", index, employeeDTO);
             return employeeDTO;
         }
-        return null; // Return null if index is invalid
+        log.warn("Invalid index {} for update", index);
+        return null;
     }
 
     public boolean deleteEmployee(int index) {
         if (index >= 0 && index < employeeList.size()) {
-            employeeList.remove(index); // Remove employee from list
+            employeeList.remove(index);
+            log.info("Deleted employee at index {}", index);
             return true;
         }
+        log.error("Invalid index {} for deletion", index);
         return false;
     }
 }
