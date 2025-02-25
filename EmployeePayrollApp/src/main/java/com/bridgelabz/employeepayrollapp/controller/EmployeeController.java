@@ -20,7 +20,6 @@ public class EmployeeController {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    // GET: Retrieve all employees
     @GetMapping
     public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
