@@ -1,33 +1,39 @@
 package com.bridgelabz.employeepayrollapp.Service;
 
+
+
 import com.bridgelabz.employeepayrollapp.DTO.EmployeeDTO;
-import com.bridgelabz.employeepayrollapp.mapper.EmployeeMapper;
-import com.bridgelabz.employeepayrollapp.model.Employee;
-import com.bridgelabz.employeepayrollapp.repository.EmployeeRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class EmployeeService {
 
-    @Autowired
-    private EmployeeRepository employeeRepository; // Handles DB operations
-
-    @Autowired
-    private EmployeeMapper employeeMapper; // Converts Model <-> DTO
+    private final List<EmployeeDTO> employeeList = new ArrayList<>(); // In-Memory Storage
 
     public List<EmployeeDTO> getAllEmployees() {
-        return employeeRepository.findAll()
-                .stream()
-                .map(employeeMapper::entityToDto)
-                .collect(Collectors.toList());
+        return employeeList; // Return all employees
     }
 
     public EmployeeDTO createEmployee(EmployeeDTO employeeDTO) {
-        Employee employee = employeeMapper.dtoToEntity(employeeDTO);
-        Employee savedEmployee = employeeRepository.save(employee);
-        return employeeMapper.entityToDto(savedEmployee);
+        employeeList.add(employeeDTO); // Add employee to in-memory list
+        return employeeDTO; // Return the added employee
+    }
+
+    public EmployeeDTO updateEmployee(int index, EmployeeDTO employeeDTO) {
+        if (index >= 0 && index < employeeList.size()) {
+            employeeList.set(index, employeeDTO); // Update employee at index
+            return employeeDTO;
+        }
+        return null; // Return null if index is invalid
+    }
+
+    public boolean deleteEmployee(int index) {
+        if (index >= 0 && index < employeeList.size()) {
+            employeeList.remove(index); // Remove employee from list
+            return true;
+        }
+        return false;
     }
 }
