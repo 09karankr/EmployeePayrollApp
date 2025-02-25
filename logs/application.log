@@ -40,3 +40,8 @@
 2025-02-25T16:35:12.861+05:30  INFO 10076 --- [EmployeePayrollApp] [http-nio-9090-exec-3] c.b.e.Service.EmployeeService            : Created new employee: EmployeeDTO(name=kiran, salary=5500.0)
 2025-02-25T16:35:23.468+05:30  INFO 10076 --- [EmployeePayrollApp] [http-nio-9090-exec-4] c.b.e.Service.EmployeeService            : Created new employee: EmployeeDTO(name=karan kumar, salary=5501200.0)
 2025-02-25T16:35:28.208+05:30  INFO 10076 --- [EmployeePayrollApp] [http-nio-9090-exec-5] c.b.e.Service.EmployeeService            : Fetching all employees
+2025-02-25T16:56:47.708+05:30  INFO 10076 --- [EmployeePayrollApp] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-02-25T16:56:47.832+05:30  INFO 10076 --- [EmployeePayrollApp] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-02-25T16:56:47.919+05:30  INFO 10076 --- [EmployeePayrollApp] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-25T16:56:48.072+05:30  INFO 10076 --- [EmployeePayrollApp] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-02-25T16:56:48.219+05:30  INFO 10076 --- [EmployeePayrollApp] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
