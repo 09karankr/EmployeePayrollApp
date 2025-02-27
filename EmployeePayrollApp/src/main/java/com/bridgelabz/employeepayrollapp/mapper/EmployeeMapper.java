@@ -4,6 +4,8 @@ import com.bridgelabz.employeepayrollapp.DTO.EmployeeDTO;
 import com.bridgelabz.employeepayrollapp.model.Employee;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+
 @Component
 public class EmployeeMapper {
 
@@ -16,7 +18,7 @@ public class EmployeeMapper {
                 employee.getName(),
                 employee.getSalary(),
                 employee.getGender(),
-                employee.getStartDate().toString(),  // Convert LocalDate to String
+                employee.getStartDate(), // Convert LocalDate to String
                 employee.getNote(),
                 employee.getProfilePic(),
                 employee.getDepartments()
