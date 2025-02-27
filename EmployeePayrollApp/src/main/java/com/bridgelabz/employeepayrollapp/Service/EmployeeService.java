@@ -3,8 +3,10 @@ package com.bridgelabz.employeepayrollapp.Service;
 
 import com.bridgelabz.employeepayrollapp.exception.EmployeeNotFoundException;
 import com.bridgelabz.employeepayrollapp.model.Employee;
+import com.bridgelabz.employeepayrollapp.repository.EmployeeRepository;
 import lombok.extern.slf4j.Slf4j;
 import com.bridgelabz.employeepayrollapp.DTO.EmployeeDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,13 +14,24 @@ import java.util.List;
 
 @Service
 public class EmployeeService {
-     private List<Employee> employeeList = new ArrayList<>();
+    @Autowired
+    private EmployeeRepository employeeRepository;
 
-     public Employee getEmployeeById(int id){
-         return  employeeList.stream()
-                 .filter(emp -> emp.getId() == id)
-                 .findFirst()
-                 .orElseThrow(() -> new EmployeeNotFoundException("Employee with id " + id + " not found"));
-     }
+    // ✅ Add Employee
+    public Employee addEmployee(EmployeeDTO employeeDTO) {
+        Employee employee = new Employee(0, employeeDTO); // Set ID to 0 for new employee
+        return employeeRepository.save(employee);
+    }
+
+    // ✅ Get All Employees
+    public List<Employee> getAllEmployees() {
+        return employeeRepository.findAll();
+    }
+
+    // ✅ Get Employee by ID
+    public Employee getEmployeeById(int id) {
+        return employeeRepository.findById((long) id)
+                .orElseThrow(() -> new RuntimeException("Employee not found"));
+    }
 
 }

@@ -6,16 +6,24 @@ import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class EmployeeDTO {
+public @ToString class EmployeeDTO {
 
-    @NotEmpty(message = "Name is required")
-    @Pattern(regexp = "^[A-Z][a-zA-Z\\s]{2,}$", message = "Name must start with uppercase and be at least 3 characters long")
-    private String name;
 
-    @Min(value = 5000, message = "Salary must be at least 5000")
-    private double salary;
+    @Pattern(regexp = "^[A-Z][a-zA-Z\\s]{2,}$", message = "Employee name Invalid")
+    public String name;
+
+    @Min(value = 5000, message = "Min wage should be more than 500")
+    public long salary;
+    public String gender;
+    public String startDate;
+    public String note;
+    public String profilePic;
+    public List<String> department;
 }
