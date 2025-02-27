@@ -3,7 +3,10 @@ package com.bridgelabz.employeepayrollapp.model;
 
 
 import com.bridgelabz.employeepayrollapp.DTO.EmployeeDTO;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -23,7 +26,10 @@ public @Data class Employee {
     private  String name;
     private long salary;
     private String gender;
-    private LocalDate startDate;
+    @JsonFormat(pattern = "dd MMM yyyy") // ✅ Ensures JSON serialization/deserialization
+    @NotNull(message = "StartDate should not be empty")
+    @PastOrPresent(message = "StartDate should be in the past or today")
+    private LocalDate startDate; // ✅ Correct Type
     private  String note;
     private  String profilePic;
     private List<String> departments;
@@ -35,7 +41,7 @@ public @Data class Employee {
         this.salary = employeeDTO.salary;
         this.gender = employeeDTO.gender;
         this.note = employeeDTO.note;
-        this.startDate = LocalDate.parse(employeeDTO.startDate);
+        this.startDate = employeeDTO.startDate;
         this.profilePic = employeeDTO.profilePic;
         this.departments = employeeDTO.department;
 
