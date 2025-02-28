@@ -22,7 +22,10 @@ public @Data class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // ✅ Auto-generate primary key
+    @Column(name = "employee_id")
     private int employeeId;
+
+    @Column(name = "name")
     private  String name;
     private long salary;
     private String gender;
@@ -32,6 +35,10 @@ public @Data class Employee {
     private LocalDate startDate; // ✅ Correct Type
     private  String note;
     private  String profilePic;
+
+    @ElementCollection
+    @CollectionTable(name = "employee_department", joinColumns = @JoinColumn(name = "id"))
+    @Column(name = "department")
     private List<String> departments;
 
     public Employee(){ }
