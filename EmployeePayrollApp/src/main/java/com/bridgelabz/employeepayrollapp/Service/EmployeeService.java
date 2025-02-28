@@ -1,14 +1,12 @@
 package com.bridgelabz.employeepayrollapp.Service;
 
 
-import com.bridgelabz.employeepayrollapp.exception.EmployeeNotFoundException;
 import com.bridgelabz.employeepayrollapp.model.Employee;
 import com.bridgelabz.employeepayrollapp.repository.EmployeeRepository;
-import lombok.extern.slf4j.Slf4j;
 import com.bridgelabz.employeepayrollapp.DTO.EmployeeDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.ArrayList;
+
 import java.util.List;
 
 
