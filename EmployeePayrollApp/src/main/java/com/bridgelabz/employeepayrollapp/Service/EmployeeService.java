@@ -32,4 +32,24 @@ public class EmployeeService {
                 .orElseThrow(() -> new RuntimeException("Employee not found"));
     }
 
+    //Update Employee
+    public Employee updateEmployee(int id, EmployeeDTO employeeDTO){
+        Employee existingEmployee = getEmployeeById(id);
+        existingEmployee.setName(employeeDTO.getName());
+        existingEmployee.setSalary(employeeDTO.getSalary());
+        existingEmployee.setGender(employeeDTO.getGender());
+        existingEmployee.setStartDate(employeeDTO.getStartDate());
+        existingEmployee.setNote(employeeDTO.getNote());
+        existingEmployee.setProfilePic(employeeDTO.getProfilePic());
+        existingEmployee.setDepartments(employeeDTO.getDepartment());
+
+        return  employeeRepository.save(existingEmployee);
+    }
+
+    // Delete Employee
+    public void deleteEmployee(int id){
+        Employee employee = getEmployeeById(id);
+        employeeRepository.delete(employee);
+    }
+
 }

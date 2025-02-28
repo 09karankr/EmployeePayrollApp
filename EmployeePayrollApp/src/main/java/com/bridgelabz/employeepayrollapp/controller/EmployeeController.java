@@ -22,19 +22,38 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
+
+    // Get employee by id
     @GetMapping("/{id}")
     public Employee getEmployeeById(@PathVariable int id){
         return employeeService.getEmployeeById(id);
     }
 
-    @GetMapping
+
+    // Get all employee
+    @GetMapping("/all")
     public List<Employee> getAllEmployees(){
         return employeeService.getAllEmployees();
     }
 
-    @PostMapping
+
+    // Create Employee
+    @PostMapping("/create")
     public Employee addEmployee(@RequestBody EmployeeDTO employeeDTO){
         return employeeService.addEmployee(employeeDTO);
+    }
+
+    // Update Employee
+    @PutMapping("/update/{id}")
+    public Employee updateEmployee(@PathVariable int id, @RequestBody EmployeeDTO employeeDTO){
+        return employeeService.updateEmployee(id, employeeDTO);
+    }
+
+    // Delete Employee
+    @DeleteMapping("/delete/{id}")
+    public String deleteEmployee(@PathVariable int id){
+        employeeService.deleteEmployee(id);
+        return  "Employee deleted successfully with ID: " + id;
     }
 
 }
